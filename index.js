@@ -6,7 +6,7 @@ dotenv.config();
 const authRoutes = require('./routes/Auth');
 const protectedRoutes = require('./routes/Protected');
 const taskRoutes = require('./routes/Tasks');
-
+const imageRoutes = require('./routes/ImageRoutes');
 
 
 const app = express();
@@ -19,6 +19,7 @@ mongoose.connect(process.env.DATABASE_URL)
 app.use('/auth', authRoutes);
 app.use('/protected', protectedRoutes);
 app.use('/tasks', taskRoutes);
+app.use('/images', imageRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
